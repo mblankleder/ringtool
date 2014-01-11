@@ -61,7 +61,7 @@ def export_vars(file)
     File.readlines(file).each do |line|
       unless line.nil?
         values = line.split("=")
-        # get rid of all the shitty characters
+        # get rid of unwanted characters
         ENV[values[0]] = values[1].gsub(/\n/,"").gsub(/\"/,"").strip
       end
     end
