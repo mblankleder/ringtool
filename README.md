@@ -1,7 +1,7 @@
 ringtool
 ========
 
-Re-formats the nodetool output to resolve the node DNS name on Dynect 
+Re-formats the nodetool output to resolve the node name instead of the ip address using Dynect managed DNS
 
 ## Needs ##
 * dynect dns
