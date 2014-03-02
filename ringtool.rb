@@ -28,6 +28,8 @@ require 'dynect_rest'
 
 title = ["Address", "Rack", "Status", "State", "Load", "Owns", "Token"]
 @tmp_file = '/tmp/ringtool.tmp'
+@server_to_connect = 'cassandra node to connect'
+@keyspace_name = 'your keyspace name'
 
 devops_home = ENV['DEVOPS_PATH']
 if ENV['DEVOPS_PATH'].nil? || ENV['DEVOPS_PATH'] == ""
@@ -75,7 +77,7 @@ def generate_tmp_file()
   nt=`which nodetool`.gsub(/\n/,"")
   if File.exist?(nt)
     puts "[INFO] Gathering data"
-    `#{nt} -h nodename.yourdomain.com ring keyspace_name > #{@tmp_file}`
+    `#{nt} -h #{@server_to_connect} ring #{@keyspace_name} > #{@tmp_file}`
   else
     puts "[ERROR] Couldn't find nodetool command"
     exit 1
